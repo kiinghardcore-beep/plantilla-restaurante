@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía de personalización, archivos y licencias de la plantilla D'Vino & Brasa.">
+  <title>Documentación — D'Vino &amp; Brasa</title>
+  <style>
+    :root { color-scheme: light; --paper: #f4f0e8; --ink: #25271f; --olive: #343c2d; --gold: #9d8054; --muted: #77756b; --line: #d9d3c7; }
+    * { box-sizing: border-box; }
+    body { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; background: var(--paper); color: var(--ink); font: 15px/1.75 Arial, sans-serif; }
+    header { padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    h1, h2 { color: var(--olive); font-family: Georgia, serif; font-weight: 500; line-height: 1.15; }
+    h1 { margin: 10px 0; font-size: clamp(38px, 7vw, 62px); }
+    h2 { margin-top: 42px; font-size: 30px; }
+    h3 { margin-bottom: 7px; color: var(--olive); font-size: 17px; }
+    p { color: var(--muted); }
+    a { color: #765d36; text-underline-offset: 3px; }
+    code, pre { font-family: Consolas, monospace; }
+    code { padding: 2px 5px; background: #eae4d8; color: var(--olive); }
+    pre { overflow: auto; padding: 18px; border: 1px solid var(--line); background: #fbf9f4; font-size: 13px; line-height: 1.6; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--olive); font-size: 12px; letter-spacing: .04em; }
+    td { color: var(--muted); font-size: 13px; }
+    .note { padding: 16px 19px; border-left: 3px solid var(--gold); background: #ebe5d9; }
+    footer { margin-top: 52px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="eyebrow">Guía de personalización · Versión 1.0.0</span>
+    <h1>D'Vino &amp; Brasa</h1>
+    <p>Guía para editar, preparar y publicar la plantilla de restaurante.</p>
+    <p><a href="../index.html">Abrir la página de demostración ↗</a></p>
+  </header>
+
+  <main>
+    <section aria-labelledby="files-title">
+      <h2 id="files-title">Estructura del proyecto</h2>
+      <pre>mi-plantilla-restaurante/
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       ├── grill.jpg
+│       ├── hero-dining.jpg
+│       └── restaurant-interior.jpg
+├── documentation/
+│   └── index.html
+└── index.html</pre>
+      <ul>
+        <li><code>index.html</code>: contenido, metadatos y estructura semántica.</li>
+        <li><code>assets/css/styles.css</code>: diseño, variables y estilos responsive.</li>
+        <li><code>assets/js/script.js</code>: menú móvil, filtros de la carta y año del pie.</li>
+        <li><code>assets/images/</code>: fotografías locales utilizadas en la demostración.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="install-title">
+      <h2 id="install-title">Instalación y puesta en marcha</h2>
+      <ol>
+        <li>Descomprime la carpeta <code>mi-plantilla-restaurante/</code> y conserva la estructura de carpetas indicada arriba.</li>
+        <li>Abre <code>index.html</code> en un navegador para ver la plantilla. No requiere instalación de dependencias ni proceso de compilación.</li>
+        <li>Para editarla, abre la carpeta del proyecto en un editor de texto o código y modifica <code>index.html</code>, <code>assets/css/styles.css</code> y, si lo necesitas, <code>assets/js/script.js</code>.</li>
+        <li>Antes de publicar, prueba los cambios en un navegador y sube la carpeta completa a tu alojamiento. Para preparar el ZIP, incluye la carpeta raíz <code>mi-plantilla-restaurante/</code> con todos sus archivos.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="customize-title">
+      <h2 id="customize-title">Cómo personalizar la plantilla</h2>
+      <h3>Marca y datos del restaurante</h3>
+      <p>Edita el nombre, textos, platos, dirección, horario y teléfono en <code>index.html</code>. Busca los enlaces con el formato <code>tel:+34912345678</code> y reemplaza el número de ejemplo tanto en el destino como en el texto visible.</p>
+      <h3>Colores, tipografías y anchura</h3>
+      <p>En las variables <code>:root</code> al inicio de <code>assets/css/styles.css</code> puedes cambiar la paleta (<code>--paper</code>, <code>--olive</code>, <code>--gold</code>), las fuentes (<code>--serif</code>, <code>--sans</code>) y el ancho del contenido (<code>--content</code>).</p>
+      <h3>Fotografías</h3>
+      <p>Sustituye los archivos de <code>assets/images/</code> manteniendo los nombres actuales, o cambia sus rutas en el HTML y en la regla <code>.hero-image</code> de la hoja de estilos. Utiliza imágenes con licencia adecuada para el uso previsto y conserva su información de origen.</p>
+      <h3>Carta y navegación</h3>
+      <p>Para añadir platos, duplica un bloque <code>.menu-item</code> y asigna la categoría correspondiente. Los botones de filtro usan los valores <code>todos</code>, <code>entrantes</code>, <code>principales</code> y <code>postres</code>. Los enlaces del menú navegan a secciones mediante sus identificadores HTML.</p>
+      <h3>Autoría</h3>
+      <p>Antes de distribuir la plantilla, reemplaza el valor de ejemplo <code>Your Name</code> en la cabecera de <code>assets/css/styles.css</code> por el nombre o estudio responsable.</p>
+    </section>
+
+    <section aria-labelledby="credits-title">
+      <h2 id="credits-title">Fuentes y licencias</h2>
+      <table>
+        <thead><tr><th>Recurso</th><th>Uso</th><th>Fuente y licencia</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Fotografía de portada</td><td><code>assets/images/hero-dining.jpg</code></td>
+            <td><a href="https://images.unsplash.com/photo-1414235077428-338989a2e8c0" rel="noreferrer">Unsplash CDN · foto-1414235077428-338989a2e8c0</a></td>
+          </tr>
+          <tr>
+            <td>Fotografía de producto</td><td><code>assets/images/grill.jpg</code></td>
+            <td><a href="https://images.unsplash.com/photo-1544025162-d76694265947" rel="noreferrer">Unsplash CDN · foto-1544025162-d76694265947</a></td>
+          </tr>
+          <tr>
+            <td>Fotografía del restaurante</td><td><code>assets/images/restaurant-interior.jpg</code></td>
+            <td><a href="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" rel="noreferrer">Unsplash CDN · foto-1517248135467-4c7edcad34c4</a></td>
+          </tr>
+          <tr>
+            <td>Cormorant Garamond y Manrope</td><td>Tipografía web</td>
+            <td><a href="https://fonts.google.com/specimen/Cormorant+Garamond" rel="noreferrer">Cormorant Garamond</a> y <a href="https://fonts.google.com/specimen/Manrope" rel="noreferrer">Manrope</a> en Google Fonts · ambas familias se distribuyen bajo la licencia SIL Open Font License.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Las imágenes de demostración se obtuvieron de Unsplash y se incluyen en <code>assets/images/</code>. Consulta la <a href="https://unsplash.com/license" rel="noreferrer">licencia de Unsplash</a> y confirma los derechos y requisitos actuales de cada recurso antes de preparar un paquete comercial para ThemeForest. Las imágenes no sustituyen la comprobación de licencia específica que pueda requerir el marketplace.</p>
+    </section>
+
+    <section aria-labelledby="publish-title">
+      <h2 id="publish-title">Antes de publicar</h2>
+      <ul>
+        <li>Actualiza los datos ficticios del restaurante, el teléfono y los textos SEO.</li>
+        <li>Verifica las licencias de las imágenes y fuentes incluidas para el uso comercial y el marketplace de destino.</li>
+        <li>Prueba los enlaces, la carta filtrable y la navegación en los navegadores y tamaños de pantalla requeridos.</li>
+        <li>Valida el HTML final con el <a href="https://validator.w3.org/nu/" rel="noreferrer">validador de Nu HTML Checker (W3C)</a> después de realizar modificaciones.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="support-title">
+      <h2 id="support-title">Soporte</h2>
+      <p>La plantilla se vende y se proporciona tal cual (<em>As Is</em>). No se garantiza su adaptación a necesidades específicas, y no se incluye soporte técnico personalizado ni personalización a medida.</p>
+    </section>
+  </main>
+
+  <footer>Documentación de D'Vino &amp; Brasa · Versión 1.0.0</footer>
+</body>
+</html>
